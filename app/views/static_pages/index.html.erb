@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Multi-Purpose Co-op</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .font-playful {
+        font-family: 'Fredoka', sans-serif;
+    }
+
+    .blob {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        will-change: transform;
+    }
+
+    .countdown-num {
+        display: inline-block;
+    }
+
+    .animated-divider {
+        animation: gradientMove 6s linear infinite;
+    }
+
+    @keyframes gradientMove {
+        from {
+            background-position: 0% 50%
+        }
+
+        to {
+            background-position: 300% 50%
+        }
+    }
+    </style>
+</head>
+
+<body role="document" class="bg-slate-900 text-slate-100 overflow-x-hidden selection:bg-amber-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
+    <div aria-hidden="true" class="blob absolute -top-20 -left-20 w-72 h-72 bg-amber-500 opacity-20 blur-2xl pointer-events-none dynamic-blob"></div>
+    <div aria-hidden="true" class="blob absolute top-1/3 -right-20 w-96 h-96 bg-cyan-500 opacity-20 blur-2xl pointer-events-none dynamic-blob"></div>
+    <div aria-hidden="true" class="blob absolute bottom-[10%] left-10 w-80 h-80 bg-emerald-500 opacity-15 blur-2xl pointer-events-none dynamic-blob"></div>
+    <header class="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <div class="flex flex-wrap items-center gap-2 text-2xl font-bold text-amber-400 font-playful tracking-wide logo">
+            <span class="bg-amber-400 text-slate-950 px-3 py-1.5 rounded-2xl shadow-md rotate-[-5deg] inline-block">Equity </span>
+            <span class="text-white">Multi-purpose Cooperative Alausa</span>
+        </div>
+        <button class="bg-slate-800 hover:bg-slate-700 text-white border-2 border-slate-700 font-bold px-5 py-2 rounded-full transition-all duration-300 shadow-lg hover:scale-105">
+            Member Sign In
+        </button>
+    </header>
+    <main class="container mx-auto px-6 pt-12 pb-24 relative z-10 flex-grow">
+        <div class="text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto hero-title">
+                Working together to make everyone's life <span class="text-amber-400 underline decoration-cyan-400">better</span>.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto hero-subtitle">
+                If you want to save, borrow, invest, or buy goods in bulk, Equity Coop <em>tanda for ya back like Olumo rock</em>.
+            </p>
+        </div>
+        <section class="bg-slate-800 border-4 border-slate-950 rounded-3xl p-8 max-w-4xl mx-auto shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] mb-10 account-card">
+            <h3 class="text-xl font-bold text-center uppercase tracking-wider text-cyan-400 mb-8 font-playful">
+                Member Account Snapshot
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 border-2 border-slate-950 rounded-2xl p-6 text-center">
+                    <p class="text-slate-400 uppercase text-sm mb-2">Savings Balance</p>
+                    <h2 id="savingsBalance" class="text-4xl font-playful font-bold text-amber-400">
+                        ₦0
+                    </h2>
+                </div>
+                <div class="bg-slate-900/60 border-2 border-slate-950 rounded-2xl p-6 text-center">
+                    <p class="text-slate-400 uppercase text-sm mb-2">Loan Balance</p>
+                    <h2 id="loanBalance" class="text-4xl font-playful font-bold text-cyan-400">
+                        ₦0
+                    </h2>
+                </div>
+                <div class="bg-slate-900/60 border-2 border-slate-950 rounded-2xl p-6 text-center">
+                    <p class="text-slate-400 uppercase text-sm mb-2">Total Deposits</p>
+                    <h2 id="depositBalance" class="text-4xl font-playful font-bold text-emerald-400">
+                        ₦0
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <div class="relative my-16 overflow-hidden rounded-full h-2">
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-cyan-400 via-fuchsia-500 to-emerald-400 bg-[length:300%_100%] animated-divider"></div>
+        </div>
+        
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto text-left feature-grid mb-24">
+            <div class="feature-card bg-slate-800 border-3 border-slate-950 p-8 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div class="text-4xl mb-4">💰</div>
+                <h4 class="text-2xl font-bold text-amber-400 mb-3 font-playful">Smart Savings</h4>
+                <p class="text-base text-slate-300 leading-relaxed">Save alongside like-minded people and watch your collective interest soar high.</p>
+            </div>
+            <div class="feature-card bg-slate-800 border-3 border-slate-950 p-8 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div class="text-4xl mb-4">🌱</div>
+                <h4 class="text-2xl font-bold text-cyan-400 mb-3 font-playful">Fair Loans</h4>
+                <p class="text-base text-slate-300 leading-relaxed">No scary bank drama. Borrow from the community pool at friendly rates.</p>
+            </div>
+            <div class="feature-card bg-slate-800 border-3 border-slate-950 p-8 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div class="text-4xl mb-4">🛒</div>
+                <h4 class="text-2xl font-bold text-emerald-400 mb-3 font-playful">Bulk Buying</h4>
+                <p class="text-base text-slate-300 leading-relaxed">Groceries, land, resources. We buy in massive bulk so everyone gets a discount.</p>
+            </div>
+            <div class="feature-card bg-slate-800 border-3 border-slate-950 p-8 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] cursor-pointer">
+                <div class="text-4xl mb-4">🪢</div>
+                <h4 class="text-2xl font-bold text-fuchsia-400 mb-3 font-playful">Joint Ventures</h4>
+                <p class="text-base text-slate-300 leading-relaxed">Co-own high-yield investments. Be ready for the rainy day like weather man.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-950 border-t-4 border-slate-950 pt-16 pb-12 relative overflow-hidden z-10">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-cyan-400 to-fuchsia-500"></div>
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                <div class="lg:col-span-12 text-left footer-pitch">
+                    <div class="inline-flex items-center space-x-2 text-2xl font-bold text-amber-400 font-playful tracking-wide mb-4">
+                        <span class="bg-amber-400 text-slate-950 px-2 py-0.5 rounded-xl text-lg rotate-[-4deg]">Equity</span>
+                        <span class="text-white">Multi-purpose Cooperative Alausa</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold font-playful text-white leading-tight mb-4">
+                        Your money saved, invested and available whenever you need it.
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        A trusted cooperative society that eliminates distrust, apathy and guesswork. All financial dealings
+                        shall be transparent and audit-ready.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <div>&copy; 2026 Equity Coop, Alausa, Ikeja.</div>
+            </div>
+        </div>
+    </footer>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Master entrance script mapping layout sequence 
+        const tl = gsap.timeline({ defaults: { ease: 'back.out(1.2)' } });
+
+        tl.from('.logo', { y: -50, opacity: 0, duration: 0.6 })
+            .from('.hero-title', { scale: 0.9, opacity: 0, duration: 0.8 }, '-=0.2')
+            .from('.hero-subtitle', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+            .from('.account-card', { y: 30, opacity: 0, duration: 0.6 }, '-=0.3')
+            .from('.feature-grid > div', { scale: 0.8, opacity: 0, stagger: 0.1, duration: 0.5 }, '-=0.3')
+            .from('.footer-pitch', { y: 30, opacity: 0, duration: 0.5 }, '-=0.2');
+
+        // Float setup mechanics for decorative background vectors
+        gsap.to('.dynamic-blob', {
+            x: () => gsap.utils.random(-40, 40),
+            y: () => gsap.utils.random(-40, 40),
+            duration: () => gsap.utils.random(5, 8),
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            stagger: 0.3
+        });
+
+        // Card hover spring actions mapping
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {
+                    y: -8,
+                    scale: 1.03,
+                    boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.6)',
+                    duration: 0.3,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    y: 0,
+                    scale: 1,
+                    boxShadow: '6px 6px 0px 0px rgba(0,0,0,0.4)',
+                    duration: 0.25,
+                    ease: 'power2.out'
+                });
+            });
+        });
+
+
+        // Animated Account Balances
+        const balances = [
+            { savings: 250000, loan: 80000, deposits: 560000 },
+            { savings: 540000, loan: 120000, deposits: 950000 },
+            { savings: 980000, loan: 0, deposits: 1800000 }
+        ];
+        const $ = id => document.getElementById(id);
+        const money = v => "₦" + v.toLocaleString();
+
+        function animateNumber(el, target) {
+            const start = Number(el.textContent.replace(/[₦,]/g, "")) || 0;
+            const obj = { value: start };
+            gsap.to(obj, { value: target, duration: 1.4, ease: "power2.out", onUpdate() { el.textContent = money(Math.floor(obj.value)); } });
+        }
+        let currentIndex = 0;
+
+        function updateBalances() {
+            const a = balances[currentIndex];
+            animateNumber($("savingsBalance"), a.savings);
+            animateNumber($("loanBalance"), a.loan);
+            animateNumber($("depositBalance"), a.deposits);
+            currentIndex = (currentIndex + 1) % balances.length;
+        }
+        updateBalances();
+        setInterval(updateBalances, 4000);
+
+        gsap.to(".animated-divider", { backgroundPosition: "300% 0%", duration: 6, repeat: -1, ease: "none" });
+
+    });
+    </script>
+</body>
+</html>
