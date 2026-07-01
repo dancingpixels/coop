@@ -5,11 +5,13 @@ one:
   ledger_number: 1
   oracle_number: 9.99
   email: MyString
-  password: MyString
+  status: 1
+  role: 1
 
 two:
   name: MyString
   ledger_number: 1
   oracle_number: 9.99
   email: MyString
-  password: MyString
+  status: 1
+  role: 1
