@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_01_041237) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_05_134021) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email"
     t.integer "ledger_number"
     t.string "name"
-    t.decimal "oracle_number", precision: 12, scale: 2
-    t.integer "role", default: 1
-    t.integer "status", default: 1
+    t.string "oracle_number"
+    t.string "role", default: "member"
+    t.string "status", default: "ACTIVE"
     t.datetime "updated_at", null: false
   end
 end
