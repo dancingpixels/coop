@@ -4,7 +4,7 @@ one:
   oracle_number: MyString
   ledger_number: 1
   name: MyString
-  email: MyString
+  email_address: MyString
   status: MyString
   role: MyString
 
@@ -12,6 +12,6 @@ two:
   oracle_number: MyString
   ledger_number: 1
   name: MyString
-  email: MyString
+  email_address: MyString
   status: MyString
   role: MyString

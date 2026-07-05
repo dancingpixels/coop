@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :oracle_number, uniqueness: true, allow_nil: true
   validates :ledger_number, presence: true, uniqueness: true
-  validates :email, presence: true, length: { maximum: 255 },
+  validates :email_address, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   validates :status, 
@@ -20,6 +20,6 @@ class User < ApplicationRecord
   private
 
   def set_email
-    self.email ||= "equity#{User.count}@example.com"
+    self.email_address ||= "equity#{User.count}@example.com"
   end
 end

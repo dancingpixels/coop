@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[8.1]
       t.string :oracle_number
       t.integer :ledger_number
       t.string :name
-      t.string :email
+      t.string :email_address
       t.string :status, default: "ACTIVE"
       t.string :role, default: "member"
 
