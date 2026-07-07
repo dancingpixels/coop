@@ -1,0 +1,82 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-6">
+  <div class="w-full max-w-md">
+
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">Equity Cooperative</h1>
+      <p class="mt-2 text-gray-600">
+        Sign in to your account
+      </p>
+    </div>
+
+    <div class="bg-white shadow-xl rounded-2xl p-8">
+
+      <% if alert = flash[:alert] %>
+        <div class="mb-6 rounded-lg bg-red-50 border border-red-200 p-4 text-red-700">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <% if notice = flash[:notice] %>
+        <div class="mb-6 rounded-lg bg-green-50 border border-green-200 p-4 text-green-700">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <%= form_with url: session_url, class: "space-y-6" do |form| %>
+
+        <div>
+          <%= form.label :email_address,
+              "Email Address",
+              class: "block text-sm font-medium text-gray-700 mb-2" %>
+
+          <div class="relative">
+            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              📧
+            </span>
+
+            <%= form.email_field :email_address,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              value: params[:email_address],
+              placeholder: "you@example.com",
+              class: "w-full rounded-lg border border-gray-300 pl-10 pr-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500" %>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <%= form.label :password,
+                "Password",
+                class: "text-sm font-medium text-gray-700" %>
+
+            <%= link_to "Forgot password?",
+                new_password_path,
+                class: "text-sm text-blue-600 hover:text-blue-700" %>
+          </div>
+
+          <div class="relative">
+            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              🔒
+            </span>
+
+            <%= form.password_field :password,
+              required: true,
+              autocomplete: "current-password",
+              maxlength: 72,
+              placeholder: "Enter your password",
+              class: "w-full rounded-lg border border-gray-300 pl-10 pr-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.submit "Sign In",
+            class: "w-full rounded-lg bg-blue-600 py-3 text-white font-semibold shadow hover:bg-blue-700 transition duration-200 cursor-pointer" %>
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
