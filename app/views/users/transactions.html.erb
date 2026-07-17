@@ -1,0 +1,98 @@
+<section class="rounded-1xl bg-gradient-to-r from-indigo-700 via-violet-700 to-fuchsia-700 p-2 text-white shadow-xl"> 
+  <h2 class="mt-2 text-2xl font-extrabold"> Transaction History </h2> 
+</section>
+
+<section class="mt-5 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+  <% @transactions.each do |transaction| %>
+    <div class="rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
+
+      <h3 class="mb-4 text-l font-bold text-slate-800">
+        <%= transaction.date.strftime("%B %d, %Y") %>
+      </h3>
+
+      <div class="space-y-2 text-slate-700">
+        <hr class="border-slate-100">
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Savings Balance</span>
+          <strong class="text-rose-600">
+            <%= number_to_currency(transaction.savings_balance, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Lodgement</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.lodgement, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Savings Debit</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.savings_debit, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <hr class="border-slate-100">
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Loan Balance</span>
+          <strong class="text-rose-600">
+            <%= number_to_currency(transaction.loan_balance, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Loan Debit</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.loan_debit, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Loan repayment</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.loan_repayment, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Deduction</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.deduction, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <hr class="border-slate-100">
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Interest Balance</span>
+          <strong class="text-rose-600">
+            <%= number_to_currency(transaction.interest_balance, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-slate-500">Interest Credit</span>
+          <strong class="text-emerald-600">
+            <%= number_to_currency(transaction.interest_credit, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+
+
+        <hr class="border-slate-100">
+        
+        <div class="flex justify-between">
+          <span class="text-slate-500">Shares Balance</span>
+          <strong class="text-rose-600">
+            <%= number_to_currency(transaction.shares_balance, unit: "₦", delimiter: ",", precision: 2) %>
+          </strong>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</section>
+
+

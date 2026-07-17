@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ledger_number: 1
+  date: 2026-07-09
+  savings_debit: 9.99
+  lodgement: 9.99
+  savings_balance: 9.99
+  shares_balance: 9.99
+  loan_debit: 9.99
+  loan_repayment: 9.99
+  loan_balance: 9.99
+  interest_credit: 9.99
+  interest_balance: 9.99
+  deduction: 9.99
+  user: one
+
+two:
+  ledger_number: 1
+  date: 2026-07-09
+  savings_debit: 9.99
+  lodgement: 9.99
+  savings_balance: 9.99
+  shares_balance: 9.99
+  loan_debit: 9.99
+  loan_repayment: 9.99
+  loan_balance: 9.99
+  interest_credit: 9.99
+  interest_balance: 9.99
+  deduction: 9.99
+  user: two

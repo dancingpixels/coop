@@ -9,7 +9,7 @@
 #   end
 
 
-# require 'csv'
+require 'csv'
 
 # users_file = File.open(File.expand_path('db/users.csv'))
 # options = { headers: true, col_sep: ','}
@@ -26,3 +26,32 @@
 # 	User.create!( user_hash )
 # 	puts "#{user_hash} - #{User.count}"
 # end
+
+users_file = File.open(File.expand_path('db/nov-2024.csv'))
+options = { headers: true, col_sep: ',' }
+
+count = 0
+
+CSV.foreach(users_file, **options) do |row|
+	user = User.find_by(ledger_number: row['ledger_number'])
+	transaction = {}
+	transaction[:ledger_number] = row['ledger_number']
+	transaction[:date] = row['date']
+	transaction[:savings_debit] = row['savings_debit']
+	transaction[:lodgement] = row['lodgement']
+	transaction[:savings_balance] = row['savings_balance']
+	transaction[:shares_balance] = row['shares_balance']
+	transaction[:loan_debit] = row['loan_debit']
+	transaction[:loan_repayment] = row['loan_repayment']
+	transaction[:loan_balance] = row['loan_balance']
+	transaction[:interest_credit] = row['interest_credit']
+	transaction[:interest_balance] = row['interest_balance']
+	transaction[:deduction] = row['deduction']
+    # next if Transaction.find_by(date: transaction[:date])
+    user.transactions.create!(transaction)
+    puts count+=1
+    puts transaction
+    puts "***"
+end
+
+puts "********************************************************"

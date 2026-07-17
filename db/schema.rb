@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_07_161140) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_17_110723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -35,6 +35,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_07_161140) do
     t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "date"
+    t.decimal "deduction", precision: 15, scale: 2, default: "0.0"
+    t.decimal "interest_balance", precision: 15, scale: 2, default: "0.0"
+    t.decimal "interest_credit", precision: 15, scale: 2, default: "0.0"
+    t.integer "ledger_number"
+    t.decimal "loan_balance", precision: 15, scale: 2, default: "0.0"
+    t.decimal "loan_debit", precision: 15, scale: 2, default: "0.0"
+    t.decimal "loan_repayment", precision: 15, scale: 2, default: "0.0"
+    t.decimal "lodgement", precision: 15, scale: 2, default: "0.0"
+    t.decimal "savings_balance", precision: 15, scale: 2, default: "0.0"
+    t.decimal "savings_debit", precision: 15, scale: 2, default: "0.0"
+    t.decimal "shares_balance", precision: 15, scale: 2, default: "0.0"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email_address", null: false
@@ -44,9 +63,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_07_161140) do
     t.string "password_digest", null: false
     t.string "role", default: "member"
     t.string "status", default: "ACTIVE"
+    t.integer "telephone"
     t.datetime "updated_at", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
   add_foreign_key "sessions", "users"
+  add_foreign_key "transactions", "users"
 end

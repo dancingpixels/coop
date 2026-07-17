@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_secure_password
   has_many :sessions, dependent: :destroy 
+  has_many :transactions
   
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -16,6 +17,8 @@ class User < ApplicationRecord
   validates :email_address, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
+  validates :telephone, uniqueness: true, allow_nil: true, numericality: true, 
+            length: { minimum: 11, maximum: 11 }
   validates :status, 
             inclusion: { in: %w(ACTIVE STOPPED WITHDRWAN RETIRED DECEASED) }
   validates :role, presence: true
