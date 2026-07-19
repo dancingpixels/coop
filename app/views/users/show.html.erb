@@ -1,16 +1,12 @@
-
-<section class="rounded-3xl bg-gradient-to-r from-indigo-700 via-violet-700 to-fuchsia-700 p-8 text-white shadow-xl">
-    <p class="text-lg text-indigo-100">
-        YOUR PROFILE
-    </p>
-    <h2 class="mt-2 text-5xl font-extrabold">
+<section class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-r from-indigo-700 via-violet-700 to-fuchsia-700 p-2 text-center text-white shadow-xl">
+    <h2 class="mt-2 text-2xl font-extrabold">
         <%= Current.user.name %>
     </h2>
 </section>
 
-<section class="mt-10 grid gap-6 md:grid-cols-9 xl:grid-cols-9">
-    <div class="rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
-        <h3 class="mb-6 text-xl font-bold">
+<section class="mt-10 flex justify-center">
+    <div class="w-full max-w-md rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
+        <h3 class="mb-6 text-xl font-bold text-center">
             Profile
         </h3>
         <dl class="space-y-5">
@@ -54,9 +50,8 @@
             </div>
         </dl>
 
-        <br/>
-
         <div class="mt-8">
-    <%= link_to "Edit Profile", edit_user_path(Current.user), class: "inline-block w-full text-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 active:bg-slate-100 transition duration-200" %>
-</div>
+            <%= link_to "Edit Profile", edit_user_path(Current.user), class: "inline-block w-full text-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 active:bg-slate-100 transition duration-200" %>
+        </div>
     </div>
+</section>

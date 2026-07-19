@@ -17,8 +17,8 @@ class User < ApplicationRecord
   validates :email_address, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
-  validates :telephone, uniqueness: true, allow_nil: true, numericality: true, 
-            length: { minimum: 11, maximum: 11 }
+  validates :telephone, uniqueness: true, allow_nil: true, numericality: {
+            length: 11, message: "must be 11 digits" } 
   validates :status, 
             inclusion: { in: %w(ACTIVE STOPPED WITHDRWAN RETIRED DECEASED) }
   validates :role, presence: true

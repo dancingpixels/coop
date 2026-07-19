@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      #resources :sessions
+      resources :transactions
+      resources :users
+
+      root to: "users#index"
+    end
+
   resource :session
   resources :passwords, param: :token
   resources :users
 
-  get "/transactions" =>  'users#transactions'
-  get "/profile"       => 'users#profile'
+  get "/transactions"  =>  'users#transactions'
+  get "/profile"       =>  'users#profile'
   
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
